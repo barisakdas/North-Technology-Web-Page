@@ -1,0 +1,67 @@
+{{ define "detail" }}
+<!doctype html>
+<html lang="en">
+
+{{ template "head" }}
+<body>
+
+<!--###################### Navigation Starts Here ############################-->
+<div class="header-container">
+    {{ template "headContact" }}
+    {{ template "navbar" .}}
+</div>
+<!--###################### Slider Starts Here ############################-->
+
+<div class="page-title titl-2">
+    <div class="container">
+        <div class="row">
+            <h2>Our Blogs</h2>
+            <p> Home <i class="fas fa-angle-double-right"></i> Our Blogs </p>
+        </div>
+    </div>
+</div>
+<!--################### Our Blog Starts Here #######################--->
+<header class="masthead mt-5" >
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    <h1 style="text-align: center !important; color: darkblue">{{ .article.Title }}</h1>
+                    <!--<h4 class="subheading" style="text-align: justify">{{ .article.Description }}</h4>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content-->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div style="text-align: justify" id="blog-content"></div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<article>
+    <div class="container">
+    <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <a href="/category/{{.article.CategoryID}}" class="btn btn-outline-success btn-block mb-5">Read all articles in the <span style="color: red">{{getCategory .article.CategoryID}}</span> category.</a>
+            </div>
+        </div>
+    </div>
+</article>
+<!--###################### Footer Starts Here ############################-->
+{{ template "footer" }}
+
+</body>
+{{ template "script" }}
+</html>
+
+<script>
+    document.getElementById("blog-content").innerHTML = "{{ .article.Content }}"
+</script>
+{{ end }}

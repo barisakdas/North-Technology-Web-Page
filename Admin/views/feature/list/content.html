@@ -1,0 +1,32 @@
+{{ define "content" }}
+<h1>
+    Anahtar Özellikler
+    <a href="/admin/add-new-feature" class="btn btn-outline-primary float-right" ><li class="fa fa-plus"></li> Yeni Ekle</a>
+</h1>
+<hr>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Başlık</th>
+        <th scope="col">Açıklama</th>
+        <th scope="col">Eklenme Tarihi</th>
+        <th scope="col">İşlemler</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $index, $value := .features }}
+    <tr>
+        <th scope="row">{{$value.ID}}</th>
+        <td>{{$value.Name}}</td>
+        <td>{{$value.Description}}</td>
+        <td>{{$value.CreatedAt}}</td>
+        <td>
+            <a href="/admin/edit-feature/{{ $value.ID }}" class="btn btn-outline-warning"><li class="fa fa-pen"></li></a>
+            <a href="/admin/delete-feature/{{ $value.ID }}" class="btn btn-outline-danger"><li class="fa fa-trash"></li></a>
+        </td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+{{ end }}

@@ -1,0 +1,52 @@
+{{ define "keyfeature" }}
+<!--###################### Key Features Starts Here ##########################-->
+<div class="key-features container-fluid">
+  <div class="container">
+    <div class="session-title row">
+      <h2>Key Features</h2>
+      <p style="text-align: justify">What do we pay attention to in the technologies we use, the codes we write, and the solutions we offer? What are our priorities?</p>
+    </div>
+    <div class="key-row row">
+      {{range $index, $value := .features }}
+      <div class="col-md-3">
+        <div class="key-single">
+          <i class="{{$value.IconClass}}"></i>
+          <h6>{{$value.Name}}</h6>
+          <p style="text-align: justify">{{$value.Description}}</p>
+        </div>
+      </div>
+      {{ end }}
+     <!-- <div class="col-md-3">
+        <div class="key-single">
+          <i class="fas fa-fingerprint"></i>
+          <h6>High Security</h6>
+          <p style="text-align: justify">Ensuring continuity in your system, maintaining vitality, continuing to operate smoothly, not stealing information, etc. Software security is important to avoid problems.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="key-single">
+          <i class="fas fa-user-lock"></i>
+          <h6>Cloud infrastructure</h6>
+          <p style="text-align: justify">Computing resources available through cloud infrastructure help business organizations in many situations, including efficiency, flexibility, competitive advantage, low cost, security and strategic goals.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="key-single">
+          <i class="fas fa-video"></i>
+          <h6>Remote Monitoring</h6>
+          <p style="text-align: justify">It is vitally important to follow the logs of our machines, the services that are running on our servers, and to be aware of a possible problem before it grows and to intervene.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="key-single">
+          <i class="far fa-folder-open"></i>
+          <h6>Full Backup of Information</h6>
+          <p style="text-align: justify">Backup is a way to protect our knowledge investment. If we have multiple copies of our information, each
+            which copy is corrupt is not a problem for us (at most we have to install from our backups.
+            requires).</p>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>
+{{ end }}

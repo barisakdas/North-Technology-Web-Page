@@ -1,0 +1,61 @@
+{{ define "service" }}
+<!doctype html>
+<html lang="en">
+
+{{ template "head" }}
+
+<body>
+
+<!--###################### Navigation Starts Here ############################-->
+<div class="header-container">
+  {{ template "headContact" }}
+  {{ template "navbar" .}}
+</div>
+
+<!--###################### Slider Starts Here ############################-->
+<div class="page-title">
+  <div class="container">
+    <div class="row">
+      <h2>Services</h2>
+      <p> Home <i class="fas fa-angle-double-right"></i> Our Services </p>
+    </div>
+  </div>
+</div>
+
+<!--###################### Services Starts Here ############################-->
+<div class="services-container container-fluid">
+  <div class="container sess-in-cont">
+    <div class="session-title row">
+      <h2>Our Services</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse venenatis magna odio, eu
+        vehicula augue suscipit ac. Pellentesque quis dui lorem. </p>
+    </div>
+    <div class="sess-row row">
+      {{range $index, $value := .services }}
+      <div class="col-md-4">
+        <div class="serv-det">
+          <figure class="imghvr-fade">
+            <img src="{{$value.PictureUrl}}" style="height: 202px; width: 480px">
+            <figcaption>
+              {{$value.Description}}
+            </figcaption>
+          </figure>
+          <h6> {{$value.Name}}</h6>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<!--###################### Key Features Starts Here ##########################-->
+{{ template "keyfeature" .}}
+
+<!--###################### Footer Starts Here ############################-->
+{{ template "footer" }}
+
+</body>
+{{ template "script" }}
+
+</html>
+{{ end }}

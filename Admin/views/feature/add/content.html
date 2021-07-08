@@ -1,0 +1,22 @@
+{{ define "content" }}
+<h1>
+    Özellik Ekle
+    <a href="/admin/features" class="btn btn-outline-primary float-right" ><li class="fa fa-arrow-left mr-2"></li>Özelliklere Geri Dön</a>
+</h1>
+<hr>
+<form action="/admin/add-feature" method="post"enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Anahtar Özellik Adı</label>
+        <input type="text" name="feature-name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Açıklama</label>
+        <input type="text" name="feature-description" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>İkon</label>
+        <input type="text" name="feature-icon" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-outline-success w-100 my-3">Kaydet</button>
+</form>
+{{ end }}

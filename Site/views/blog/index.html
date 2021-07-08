@@ -1,0 +1,59 @@
+{{ define "blog" }}
+<!doctype html>
+<html lang="en">
+
+{{ template "head" }}
+<body>
+
+<!--###################### Navigation Starts Here ############################-->
+<div class="header-container">
+    {{ template "headContact" }}
+    {{ template "navbar" .}}
+</div>
+<!--###################### Slider Starts Here ############################-->
+
+<div class="page-title titl-2">
+    <div class="container">
+        <div class="row">
+            <h2>Our Blogs</h2>
+            <p> Home <i class="fas fa-angle-double-right"></i> Our Blogs </p>
+        </div>
+    </div>
+</div>
+<!--################### Our Blog Starts Here #######################--->
+<div class="blog-container contaienr-fluid">
+    <div class="container">
+        <div class="session-title row">
+            <h2>Latest Blog</h2>
+            <p>In our blog posts, you can find our articles about the services we provide and the technologies we use, as well as the technologies and concepts that have been used and become widespread recently.</p>
+        </div>
+        <div class="row news-row">
+            {{range $index, $value := .articles }}
+            <div class="col-md-6">
+                <div class="news-card">
+                    <div class="image">
+                        <img src="{{$value.PictureUrl}}" style="height: 152px; width: 480px">
+                    </div>
+                    <div class="detail">
+                        <a href="/blog/{{$value.Slug}}"><h3>{{$value.Title}}</h3></a>
+                        <p>{{$value.Description}} </p>
+                        <p class="footp">
+                            {{getCategory $value.CategoryID}} <span>/</span>
+                            {{getDate $value.CreatedAt}} <span>/</span>
+                            <a href="/blog/{{$value.Slug}}"> Read More </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+
+<!--###################### Footer Starts Here ############################-->
+{{ template "footer" }}
+
+</body>
+{{ template "script" }}
+</html>
+{{ end }}

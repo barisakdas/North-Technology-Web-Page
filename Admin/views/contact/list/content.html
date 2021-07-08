@@ -1,0 +1,35 @@
+{{ define "content" }}
+<h1>
+    Mesajlar
+    <a href="/admin/old-contacts" class="btn btn-outline-primary float-right" ><li class="fa fa-reply"></li> Daha Önce Yanıtlananlar</a>
+</h1>
+<hr>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Telefon</th>
+        <th scope="col">Mesaj</th>
+        <th scope="col">Eklenme Tarihi</th>
+        <th scope="col">İletişime Geç</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $index, $value := .contacts }}
+    <tr>
+        <th scope="row">{{$value.ID}}</th>
+        <td>{{$value.Name}}</td>
+        <td>{{$value.Email}}</td>
+        <td>{{$value.Phone}}</td>
+        <td>{{$value.Message}}</td>
+        <td>{{getDate $value.CreatedAt}}</td>
+        <td>
+            <a href="/admin/reply-message/{{ $value.ID }}" class="btn btn-outline-warning"><li class="fa fa-check"></li></a>
+        </td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+{{ end }}

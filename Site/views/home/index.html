@@ -1,0 +1,104 @@
+{{ define "index" }}
+<!doctype html>
+<html lang="en">
+
+{{ template "head" }}
+
+<body>
+
+<!--###################### Navigation Starts Here ############################-->
+
+<div class="header-container">
+    {{ template "headContact" }}
+    {{ template "navbar" .}}
+</div>
+
+<!--###################### Slider Starts Here ############################-->
+{{ template "slider" }}
+
+<!--###################### Services Starts Here ############################-->
+<div class="services-container container-fluid">
+    <div class="container sess-in-cont">
+        <div class="session-title row">
+            <h2>Our Services</h2>
+            <p>Our solutions to bring you and your valuable ideas to life, add value to their values, and support and grow them with you.</p>
+        </div>
+        <div class="sess-row row">
+            {{range $index, $value := .services }}
+            <div class="col-md-4">
+                <div class="serv-det">
+                    <figure class="imghvr-fade">
+                        <img src="{{$value.PictureUrl}}" style="height: 202px; width: 480px">
+                        <figcaption>
+                            {{$value.Description}}
+                        </figcaption>
+                    </figure>
+                    <div style="text-align: center"><h6> {{$value.Name}}</h6></div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+<!--###################### About Company Starts Here ############################-->
+<section class="with-medical">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <img src="/Site/assets/images/about.jpg" alt="">
+            </div>
+            <div class="col-lg-6 col-md-12 txtr">
+                <h4 style="text-align: center">Who Are We? <br>
+                    <span style="text-align: center">{{.about.Title}}</span>
+                </h4>
+                <div id="desc"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--################### Our Blog Starts Here #######################--->
+<div class="blog-container contaienr-fluid">
+    <div class="container">
+        <div class="session-title row">
+            <h2>Latest Blog</h2>
+            <p>In our blog posts, you can find our articles about the services we provide and the technologies we use, as well as the technologies and concepts that have been used and become widespread recently.</p>
+        </div>
+        <div class="row news-row">
+            {{range $index, $value := .articles }}
+            <div class="col-md-6">
+                <div class="news-card">
+                    <div class="image">
+                        <img src="{{$value.PictureUrl}}" style="height: 152px; width: 480px">
+                    </div>
+                    <div class="detail">
+                        <a href="/blog/{{$value.Slug}}"><h3>{{$value.Title}}</h3></a>
+                        <p>{{$value.Description}} </p>
+                        <p class="footp">
+                            {{getCategory $value.CategoryID}} <span>/</span>
+                            {{getDate $value.CreatedAt}} <span>/</span>
+                            <a href="/blog/{{$value.Slug}}"> Read More </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+
+<!--###################### Key Features Starts Here ##########################-->
+{{ template "keyfeature" .}}
+
+<!--###################### Footer Starts Here ############################-->
+{{ template "footer" }}
+
+</body>
+{{ template "script" }}
+</html>
+
+<script>
+    document.getElementById("desc").innerHTML = "{{.about.Description}}"
+</script>
+{{ end }}

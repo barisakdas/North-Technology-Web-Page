@@ -1,0 +1,18 @@
+{{ define "content" }}
+<h1>
+    Menü Ekle
+    <a href="/admin/site-menus" class="btn btn-outline-primary float-right" ><li class="fa fa-arrow-left mr-2"></li>Menülere Geri Dön</a>
+</h1>
+<hr>
+<form action="/admin/add-menu" method="post"enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Menu Adı</label>
+        <input type="text" name="menu-name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Adres</label>
+        <input type="text" name="menu-address" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-outline-success w-100 my-3">Kaydet</button>
+</form>
+{{ end }}

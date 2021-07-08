@@ -1,0 +1,20 @@
+{{ define "content" }}
+<h1>
+    Hakkımızda Düzenle
+    <a href="/admin/about-us" class="btn btn-outline-primary float-right">
+        <li class="fa fa-arrow-left mr-2"></li>Geri Dön
+    </a>
+</h1>
+<hr>
+<form action="/admin/update-about/{{.about.ID}}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Başlık</label>
+        <input type="text" name="name" class="form-control" value="{{.about.Title}}">
+    </div>
+    <div class="form-group">
+        <label>İçerik</label>
+        <textarea name="description" id="summernote" cols="30" rows="10" class="form-control">{{.about.Description}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-success w-100 my-3">Kaydet</button>
+</form>
+{{ end }}

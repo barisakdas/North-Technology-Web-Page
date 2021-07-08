@@ -1,0 +1,56 @@
+{{ define "about" }}
+<!doctype html>
+<html lang="en">
+
+{{ template "head" }}
+
+<body>
+
+<!--###################### Navigation Starts Here ############################-->
+
+<div class="header-container">
+    {{ template "headContact" }}
+    {{ template "navbar" .}}
+</div>
+<!--###################### Slider Starts Here ############################-->
+
+<div class="page-title titl-2">
+    <div class="container">
+        <div class="row">
+            <h2>About Us</h2>
+            <p> Home <i class="fas fa-angle-double-right"></i> About US </p>
+        </div>
+    </div>
+</div>
+
+<!--###################### About Company Starts Here ############################-->
+<section class="with-medical">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <img src="Site/assets/images/about.jpg" alt="">
+            </div>
+            <div class="col-lg-6 col-md-12 txtr">
+                <h4 style="text-align: center">Who Are We? <br>
+                    <span style="text-align: center">{{.about.Title}}</span>
+                </h4>
+                <div id="desc"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--###################### Key Features Starts Here ##########################-->
+{{ template "keyfeature" .}}
+
+<!--###################### Footer Starts Here ############################-->
+{{ template "footer" }}
+
+</body>
+{{ template "script" }}
+</html>
+
+<script>
+    document.getElementById("desc").innerHTML = "{{.about.Description}}"
+</script>
+{{ end }}

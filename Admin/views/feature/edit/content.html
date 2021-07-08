@@ -1,0 +1,29 @@
+{{ define "content" }}
+<h1>
+    Özellik Düzenle
+    <a href="/admin/features" class="btn btn-outline-primary float-right" ><li class="fa fa-arrow-left mr-2"></li>Özelliklere Geri Dön</a>
+</h1>
+<hr>
+<form action="/admin/update-feature/{{.feature.ID}}" method="post"enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Feature Adı</label>
+        <input type="text" name="feature-name" class="form-control" value="{{.feature.Name}}">
+    </div>
+    <div class="form-group">
+    <label>Açıklama</label>
+        <input type="text" name="feature-description" class="form-control" value="{{.feature.Description}}">
+    </div>
+    <div class="form-group">
+        <label>İkon</label>
+        <input type="text" name="feature-icon" class="form-control" value="{{.feature.IconClass}}">
+    </div>
+    <button type="submit" class="btn btn-outline-success w-100 my-3">Kaydet</button>
+</form>
+
+<script>
+    document.getElementById("article-picture").addEventListener("change",function (){
+        document.getElementById("is_selected").setAttribute("value","1")
+        document.getElementById("current_image").style.display = "none"
+    })
+</script>
+{{ end }}

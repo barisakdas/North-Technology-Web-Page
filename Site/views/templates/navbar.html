@@ -1,0 +1,24 @@
+{{ define "navbar" }}
+<nav id="menu-jk" class="container-fluid  no-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-12 logo">
+        <a href="/"><img class="log" src="/Site/assets/images/logo.png" alt=""></a>
+        <a href="/"><img class="log-gray" src="/Site/assets/images/logo-black.png" alt=""></a>
+        <a data-toggle="collapse" data-target="#nav-head" href="#nav-head"><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+      </div>
+      <div id="nav-head" class="col-md-9 nav-div d-none d-md-block">
+        <ul>
+          {{ range $index, $value := .menus }}
+          <li><a class="js-scroll-trigger" href="{{$value.Address}}">{{$value.Name}}</a></li>
+          <!--<li><a class="js-scroll-trigger" href="/about">About Company</a></li>
+          <li><a class="js-scroll-trigger" href="/service">Services</a></li>
+          <li><a class="js-scroll-trigger" href="/blog">Our Blog</a></li>
+          <li><a class="js-scroll-trigger" href="/contact">Contact Us</a></li>-->
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+{{ end }}
