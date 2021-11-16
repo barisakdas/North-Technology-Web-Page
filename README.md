@@ -4,4 +4,4 @@ After you install this project, you can start with this command in the main fold
 
 ```go
 go run main.go
-)
+```
